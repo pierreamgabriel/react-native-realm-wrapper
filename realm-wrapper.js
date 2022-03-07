@@ -126,7 +126,11 @@ function RNRW() {
 	} catch(e) {
 		return Promise.resolve(e);
 	}
+	if (!isFinite(primaryKey)){	
+	return 1;	
+	} else {
 	return Promise.resolve(primaryKey);	
+	}	
 	}	
 	
 }
