@@ -121,11 +121,12 @@ It returns all objects in a schema.
 ```javascript
 rnrw.ot(schema).then(obj => {});
 ```
-You can sort the objects by any property. In the example below, we're sorting them by model:
+You can sort the objects by any property. In the example below, we're sorting them by model in ascending order:
 
 ```javascript
 rnrw.ot(schema, "model").then(obj => {});
 ```
+To sort in descending order, pass true as the third argument.
 
 ### Find the next available id
 

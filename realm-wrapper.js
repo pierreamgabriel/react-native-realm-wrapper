@@ -20,13 +20,17 @@ function RNRW() {
 	return Promise.resolve(pk);	
 	}	
 	
-	this.ot = async function (arg1, arg2) {	
+	this.ot = async function (arg1, arg2, arg3) {	
 	if (arg2 != null){
 	await openRealm(arg1).then(data => {openR = data;});
 	realm = await Realm.open(openR);	
 	let ot;	
 	try {
-	ot = realm.objects(openR.schema[0].name).sorted(arg2);	
+	if (arg3) {
+	ot = realm.objects(openR.schema[0].name).sorted(arg2, true);
+	} else {
+	ot = realm.objects(openR.schema[0].name).sorted(arg2);
+	}	
 	} catch(e) {
 		return Promise.resolve(e);
 	}
